@@ -1,11 +1,11 @@
 <template>
-  <div class="column content-box audit-log--settings">
+  <div class="flex-1 overflow-auto p-4 flex justify-between flex-col">
     <!-- List Audit Logs -->
     <div>
       <div>
         <p
           v-if="!uiFlags.fetchingList && !records.length"
-          class="no-items-error-message"
+          class="flex h-full items-center flex-col justify-center"
         >
           {{ $t('AUDIT_LOGS.LIST.404') }}
         </p>
@@ -16,10 +16,10 @@
 
         <table
           v-if="!uiFlags.fetchingList && records.length"
-          class="woot-table width-100"
+          class="woot-table w-full"
         >
           <colgroup>
-            <col class="column-activity" />
+            <col class="w-[60%]" />
             <col />
             <col />
           </colgroup>
@@ -34,10 +34,10 @@
           </thead>
           <tbody>
             <tr v-for="auditLogItem in records" :key="auditLogItem.id">
-              <td class="wrap-break-words">
+              <td class="whitespace-nowrap break-all">
                 {{ generateLogText(auditLogItem) }}
               </td>
-              <td class="wrap-break-words">
+              <td class="whitespace-nowrap break-all">
                 {{
                   messageTimestamp(
                     auditLogItem.created_at,
@@ -45,7 +45,7 @@
                   )
                 }}
               </td>
-              <td class="remote-address">
+              <td class="w-[8.75rem]">
                 {{ auditLogItem.remote_address }}
               </td>
             </tr>
@@ -57,13 +57,14 @@
       :current-page="Number(meta.currentPage)"
       :total-count="meta.totalEntries"
       :page-size="meta.perPage"
+      class="dark:bg-slate-900"
       @page-change="onPageChange"
     />
   </div>
 </template>
 <script>
 import { mapGetters } from 'vuex';
-import TableFooter from 'dashboard/components/widgets/TableFooter';
+import TableFooter from 'dashboard/components/widgets/TableFooter.vue';
 import timeMixin from 'dashboard/mixins/time';
 import alertMixin from 'shared/mixins/alertMixin';
 import {
@@ -76,6 +77,12 @@ export default {
     TableFooter,
   },
   mixins: [alertMixin, timeMixin],
+  beforeRouteEnter(to, from, next) {
+    // Fetch Audit Logs on page load without manual refresh
+    next(vm => {
+      vm.fetchAuditLogs();
+    });
+  },
   data() {
     return {
       loading: {},
@@ -83,12 +90,6 @@ export default {
         message: '',
       },
     };
-  },
-  beforeRouteEnter(to, from, next) {
-    // Fetch Audit Logs on page load without manual refresh
-    next(vm => {
-      vm.fetchAuditLogs();
-    });
   },
   computed: {
     ...mapGetters({
@@ -133,24 +134,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.audit-log--settings {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-
-  .remote-address {
-    width: 14rem;
-  }
-
-  .wrap-break-words {
-    word-break: break-all;
-    white-space: normal;
-  }
-
-  .column-activity {
-    width: 60%;
-  }
-}
-</style>

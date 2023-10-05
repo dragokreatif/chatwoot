@@ -1,6 +1,6 @@
 <template>
-  <div class="contacts-page row">
-    <div class="left-wrap" :class="wrapClass">
+  <div class="w-full flex flex-row">
+    <div class="flex flex-col h-full" :class="wrapClass">
       <contacts-header
         :search-query="searchQuery"
         :header-title="pageTitle"
@@ -81,17 +81,17 @@
 <script>
 import { mapGetters } from 'vuex';
 
-import ContactsHeader from './Header';
-import ContactsTable from './ContactsTable';
-import ContactInfoPanel from './ContactInfoPanel';
-import CreateContact from 'dashboard/routes/dashboard/conversation/contact/CreateContact';
-import TableFooter from 'dashboard/components/widgets/TableFooter';
+import ContactsHeader from './Header.vue';
+import ContactsTable from './ContactsTable.vue';
+import ContactInfoPanel from './ContactInfoPanel.vue';
+import CreateContact from 'dashboard/routes/dashboard/conversation/contact/CreateContact.vue';
+import TableFooter from 'dashboard/components/widgets/TableFooter.vue';
 import ImportContacts from './ImportContacts.vue';
 import ContactsAdvancedFilters from './ContactsAdvancedFilters.vue';
 import contactFilterItems from '../contactFilterItems';
 import filterQueryGenerator from '../../../../helper/filterQueryGenerator';
-import AddCustomViews from 'dashboard/routes/dashboard/customviews/AddCustomViews';
-import DeleteCustomViews from 'dashboard/routes/dashboard/customviews/DeleteCustomViews';
+import AddCustomViews from 'dashboard/routes/dashboard/customviews/AddCustomViews.vue';
+import DeleteCustomViews from 'dashboard/routes/dashboard/customviews/DeleteCustomViews.vue';
 import { CONTACTS_EVENTS } from '../../../../helper/AnalyticsHelper/events';
 import alertMixin from 'shared/mixins/alertMixin';
 import countries from 'shared/constants/countries.js';
@@ -187,7 +187,7 @@ export default {
       return this.selectedContactId !== '';
     },
     wrapClass() {
-      return this.showContactViewPane ? 'medium-9' : 'medium-12';
+      return this.showContactViewPane ? 'w-[75%]' : 'w-full';
     },
     pageParameter() {
       const selectedPageNumber = Number(this.$route.query?.page);
@@ -407,9 +407,10 @@ export default {
       const params = {
         countries: countries,
         filterTypes: contactFilterItems,
-        allCustomAttributes: this.$store.getters[
-          'attributes/getAttributesByModel'
-        ]('contact_attribute'),
+        allCustomAttributes:
+          this.$store.getters['attributes/getAttributesByModel'](
+            'contact_attribute'
+          ),
       };
       return params;
     },
@@ -458,15 +459,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.contacts-page {
-  width: 100%;
-}
-
-.left-wrap {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-</style>

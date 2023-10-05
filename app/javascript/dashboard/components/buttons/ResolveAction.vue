@@ -1,5 +1,5 @@
 <template>
-  <div class="resolve-actions">
+  <div class="resolve-actions relative flex items-center justify-end">
     <div class="button-group">
       <woot-button
         v-if="isOpen"
@@ -10,7 +10,7 @@
         :is-loading="isLoading"
         @click="onCmdResolveConversation"
       >
-        {{ this.$t('CONVERSATION.HEADER.RESOLVE_ACTION') }}
+        {{ $t('CONVERSATION.HEADER.RESOLVE_ACTION') }}
       </woot-button>
       <woot-button
         v-else-if="isResolved"
@@ -21,7 +21,7 @@
         :is-loading="isLoading"
         @click="onCmdOpenConversation"
       >
-        {{ this.$t('CONVERSATION.HEADER.REOPEN_ACTION') }}
+        {{ $t('CONVERSATION.HEADER.REOPEN_ACTION') }}
       </woot-button>
       <woot-button
         v-else-if="showOpenButton"
@@ -31,7 +31,7 @@
         :is-loading="isLoading"
         @click="onCmdOpenConversation"
       >
-        {{ this.$t('CONVERSATION.HEADER.OPEN_ACTION') }}
+        {{ $t('CONVERSATION.HEADER.OPEN_ACTION') }}
       </woot-button>
       <woot-button
         v-if="showAdditionalActions"
@@ -54,19 +54,21 @@
             variant="clear"
             color-scheme="secondary"
             size="small"
-            icon="book-clock"
-            @click="() => toggleStatus(STATUS_TYPE.PENDING)"
+            icon="snooze"
+            @click="() => openSnoozeModal()"
           >
-            {{ this.$t('CONVERSATION.RESOLVE_DROPDOWN.MARK_PENDING') }}
+            {{ $t('CONVERSATION.RESOLVE_DROPDOWN.SNOOZE_UNTIL') }}
           </woot-button>
+        </woot-dropdown-item>
+        <woot-dropdown-item v-if="!isPending">
           <woot-button
             variant="clear"
             color-scheme="secondary"
             size="small"
-            icon="snooze"
-            @click="() => openSnoozeModal()"
+            icon="book-clock"
+            @click="() => toggleStatus(STATUS_TYPE.PENDING)"
           >
-            {{ this.$t('CONVERSATION.RESOLVE_DROPDOWN.SNOOZE_UNTIL') }}
+            {{ $t('CONVERSATION.RESOLVE_DROPDOWN.MARK_PENDING') }}
           </woot-button>
         </woot-dropdown-item>
       </woot-dropdown-menu>
@@ -88,7 +90,7 @@ import { getUnixTime } from 'date-fns';
 import { mapGetters } from 'vuex';
 import { mixin as clickaway } from 'vue-clickaway';
 import alertMixin from 'shared/mixins/alertMixin';
-import CustomSnoozeModal from 'dashboard/components/CustomSnoozeModal';
+import CustomSnoozeModal from 'dashboard/components/CustomSnoozeModal.vue';
 import eventListenerMixins from 'shared/mixins/eventListenerMixins';
 import {
   hasPressedAltAndEKey,
@@ -249,23 +251,11 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.resolve-actions {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-
 .dropdown-pane {
-  left: unset;
-  top: 4.2rem;
-  margin-top: var(--space-micro);
-  right: 0;
-  max-width: 20rem;
-  min-width: 15.6rem;
+  @apply left-auto top-[2.625rem] mt-0.5 right-0 max-w-[12.5rem] min-w-[9.75rem];
 
   .dropdown-menu__item {
-    margin-bottom: 0;
+    @apply mb-0;
   }
 }
 </style>

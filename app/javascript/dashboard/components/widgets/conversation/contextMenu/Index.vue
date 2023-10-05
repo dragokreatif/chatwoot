@@ -1,5 +1,5 @@
 <template>
-  <div class="menu-container">
+  <div class="bg-white dark:bg-slate-700 shadow-xl rounded-md p-1">
     <menu-item
       v-if="!hasUnreadMessages"
       :option="unreadOption"
@@ -34,15 +34,13 @@
       :option="labelMenuConfig"
       :sub-menu-available="!!labels.length"
     >
-      <template>
-        <menu-item
-          v-for="label in labels"
-          :key="label.id"
-          :option="generateMenuLabelConfig(label, 'label')"
-          variant="label"
-          @click="$emit('assign-label', label)"
-        />
-      </template>
+      <menu-item
+        v-for="label in labels"
+        :key="label.id"
+        :option="generateMenuLabelConfig(label, 'label')"
+        variant="label"
+        @click="$emit('assign-label', label)"
+      />
     </menu-item-with-submenu>
     <menu-item-with-submenu
       :option="agentMenuConfig"
@@ -243,12 +241,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.menu-container {
-  padding: var(--space-smaller);
-  background-color: var(--white);
-  box-shadow: var(--shadow-context-menu);
-  border-radius: var(--border-radius-normal);
-}
-</style>

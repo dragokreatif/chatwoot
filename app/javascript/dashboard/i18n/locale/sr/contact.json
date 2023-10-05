@@ -15,7 +15,7 @@
     "INITIATED_FROM": "Započeto sa",
     "INITIATED_AT": "Započeto u",
     "IP_ADDRESS": "IP adresa",
-    "CREATED_AT_LABEL": "Created",
+    "CREATED_AT_LABEL": "Kreirano",
     "NEW_MESSAGE": "Nova poruka",
     "CONVERSATIONS": {
       "NO_RECORDS_FOUND": "Nema ranijih razgovora povezanih sa ovim kontaktom.",
@@ -33,7 +33,8 @@
       "LABEL_SELECT": {
         "TITLE": "Dodaj oznake",
         "PLACEHOLDER": "Pretraži oznake",
-        "NO_RESULT": "Oznake nisu pronađene"
+        "NO_RESULT": "Oznake nisu pronađene",
+        "CREATE_LABEL": "Create new label"
       }
     },
     "MERGE_CONTACT": "Spoji kontakt",
@@ -70,7 +71,7 @@
       "SUBMIT": "Uvoz",
       "CANCEL": "Otkaži"
     },
-    "SUCCESS_MESSAGE": "Kontakti su uspešno sačuvani",
+    "SUCCESS_MESSAGE": "Bićete obavešteni putem e-poruke kada se uvoz završi.",
     "ERROR_MESSAGE": "Pojavila se greška, molim vas pokušajte ponovo"
   },
   "EXPORT_CONTACTS": {
