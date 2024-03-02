@@ -39,10 +39,10 @@
     },
     "MERGE_CONTACT": "Обединяване на контакти",
     "CONTACT_ACTIONS": "Действия за контакта",
-    "MUTE_CONTACT": "Заглушаване на разговора",
-    "UNMUTE_CONTACT": "Пускане звука на разговора",
-    "MUTED_SUCCESS": "Този разговор е заглушен за 6 часа",
-    "UNMUTED_SUCCESS": "Този разговор е с пуснат звук",
+    "MUTE_CONTACT": "Block Contact",
+    "UNMUTE_CONTACT": "Unblock Contact",
+    "MUTED_SUCCESS": "This contact is blocked successfully. You will not be notified of any future conversations.",
+    "UNMUTED_SUCCESS": "This contact is unblocked successfully.",
     "SEND_TRANSCRIPT": "Изпрати копие",
     "EDIT_LABEL": "Редактирай",
     "SIDEBAR_SECTIONS": {
@@ -79,7 +79,13 @@
     "TITLE": "Export Contacts",
     "DESC": "Export contacts to a CSV file.",
     "SUCCESS_MESSAGE": "Export is in progress, You will be notified via email when export file is ready to dowanlod.",
-    "ERROR_MESSAGE": "Възникна грешка, моля опитайте отново"
+    "ERROR_MESSAGE": "Възникна грешка, моля опитайте отново",
+    "CONFIRM": {
+      "TITLE": "Export Contacts",
+      "MESSAGE": "Are you sure you want to export all contacts?",
+      "YES": "Yes, Export",
+      "NO": "No, Cancel"
+    }
   },
   "DELETE_NOTE": {
     "CONFIRM": {
@@ -203,6 +209,10 @@
         "LABEL": "Съобщение",
         "PLACEHOLDER": "Напишете съобщението си тук",
         "ERROR": "Съобщението не може да е празно"
+      },
+      "ATTACHMENTS": {
+        "SELECT": "Choose files",
+        "HELP_TEXT": "Drag and drop files here or choose files to attach"
       },
       "SUBMIT": "Изпрати съобщение",
       "CANCEL": "Отмени",
@@ -335,7 +345,8 @@
     },
     "VALIDATIONS": {
       "REQUIRED": "Необходима е валидна стойност",
-      "INVALID_URL": "Невалиден URL"
+      "INVALID_URL": "Невалиден URL",
+      "INVALID_INPUT": "Invalid Input"
     }
   },
   "MERGE_CONTACTS": {
@@ -343,17 +354,17 @@
     "DESCRIPTION": "Обединете контактите, за да комбинирате два профила в един, включително всички атрибути и разговори. В случай на конфликт атрибутите на основния контакт ще имат предимство.",
     "PRIMARY": {
       "TITLE": "Основен контакт",
-      "HELP_LABEL": "Да бъде запазено"
+      "HELP_LABEL": "Да бъде изтрит"
     },
-    "CHILD": {
+    "PARENT": {
       "TITLE": "Контакт за обединяване",
       "PLACEHOLDER": "Търсене на контакт",
-      "HELP_LABEL": "Да бъде изтрит"
+      "HELP_LABEL": "Да бъде запазено"
     },
     "SUMMARY": {
       "TITLE": "Резюме",
-      "DELETE_WARNING": "Контакт от <strong>%{childContactName}</strong> ще бъде изтрит.",
-      "ATTRIBUTE_WARNING": "Детайлите на контакт <strong>%{childContactName}</strong> ще бъдат копирани в <strong>%{primaryContactName}</strong>."
+      "DELETE_WARNING": "Контакт от <strong>%{primaryContactName}</strong> ще бъде изтрит.",
+      "ATTRIBUTE_WARNING": "Детайлите на контакт <strong>%{primaryContactName}</strong> ще бъдат копирани в <strong>%{parentContactName}</strong>."
     },
     "SEARCH": {
       "ERROR": "ГРЕШКА"

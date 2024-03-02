@@ -9,7 +9,7 @@
 #  content_type              :integer          default("text"), not null
 #  external_source_ids       :jsonb
 #  message_type              :integer          not null
-#  private                   :boolean          default(FALSE)
+#  private                   :boolean          default(FALSE), not null
 #  processed_message_content :text
 #  sender_type               :string
 #  sentiment                 :jsonb
@@ -60,6 +60,7 @@ class Message < ApplicationRecord
 
   before_validation :ensure_content_type
   before_save :ensure_processed_message_content
+  before_save :ensure_in_reply_to
 
   validates :account_id, presence: true
   validates :inbox_id, presence: true
@@ -88,7 +89,8 @@ class Message < ApplicationRecord
     article: 7,
     incoming_email: 8,
     input_csat: 9,
-    integrations: 10
+    integrations: 10,
+    sticker: 11
   }
   enum status: { sent: 0, delivered: 1, read: 2, failed: 3 }
   # [:submitted_email, :items, :submitted_values] : Used for bot message types
@@ -99,7 +101,7 @@ class Message < ApplicationRecord
   # [:external_error : Can specify if the message creation failed due to an error at external API
   store :content_attributes, accessors: [:submitted_email, :items, :submitted_values, :email, :in_reply_to, :deleted,
                                          :external_created_at, :story_sender, :story_id, :external_error,
-                                         :translations, :in_reply_to_external_id], coder: JSON
+                                         :translations, :in_reply_to_external_id, :is_unsupported], coder: JSON
 
   store :external_source_ids, accessors: [:slack], coder: JSON, prefix: :external_source_id
 
@@ -116,7 +118,7 @@ class Message < ApplicationRecord
   belongs_to :account
   belongs_to :inbox
   belongs_to :conversation, touch: true
-  belongs_to :sender, polymorphic: true, required: false
+  belongs_to :sender, polymorphic: true, optional: true
 
   has_many :attachments, dependent: :destroy, autosave: true, before_add: :validate_attachments_limit
   has_one :csat_survey_response, dependent: :destroy_async
@@ -137,8 +139,8 @@ class Message < ApplicationRecord
       conversation_id: conversation.display_id,
       conversation: conversation_push_event_data
     )
-    data.merge!(echo_id: echo_id) if echo_id.present?
-    data.merge!(attachments: attachments.map(&:push_event_data)) if attachments.present?
+    data[:echo_id] = echo_id if echo_id.present?
+    data[:attachments] = attachments.map(&:push_event_data) if attachments.present?
     merge_sender_attributes(data)
   end
 
@@ -161,8 +163,8 @@ class Message < ApplicationRecord
   end
 
   def merge_sender_attributes(data)
-    data.merge!(sender: sender.push_event_data) if sender && !sender.is_a?(AgentBot)
-    data.merge!(sender: sender.push_event_data(inbox)) if sender.is_a?(AgentBot)
+    data[:sender] = sender.push_event_data if sender && !sender.is_a?(AgentBot)
+    data[:sender] = sender.push_event_data(inbox) if sender.is_a?(AgentBot)
     data
   end
 
@@ -182,7 +184,7 @@ class Message < ApplicationRecord
       sender: sender.try(:webhook_data),
       source_id: source_id
     }
-    data.merge!(attachments: attachments.map(&:push_event_data)) if attachments.present?
+    data[:attachments] = attachments.map(&:push_event_data) if attachments.present?
     data
   end
 
@@ -231,6 +233,18 @@ class Message < ApplicationRecord
 
     message_content = text_content_quoted || html_content_quoted || content
     self.processed_message_content = message_content&.truncate(150_000)
+  end
+
+  # fetch the in_reply_to message and set the external id
+  def ensure_in_reply_to
+    in_reply_to = content_attributes[:in_reply_to]
+    in_reply_to_external_id = content_attributes[:in_reply_to_external_id]
+
+    Messages::InReplyToMessageBuilder.new(
+      message: self,
+      in_reply_to: in_reply_to,
+      in_reply_to_external_id: in_reply_to_external_id
+    ).perform
   end
 
   def ensure_content_type
@@ -285,6 +299,10 @@ class Message < ApplicationRecord
   end
 
   def dispatch_update_event
+    # ref: https://github.com/rails/rails/issues/44500
+    # we want to skip the update event if the message is not updated
+    return if previous_changes.blank?
+
     Rails.configuration.dispatcher.dispatch(MESSAGE_UPDATED, Time.zone.now, message: self, performed_by: Current.executed_by,
                                                                             previous_changes: previous_changes)
   end

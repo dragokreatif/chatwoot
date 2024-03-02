@@ -3,6 +3,7 @@
     "HEADER": {
       "FILTER": "Filtrar por",
       "SORT": "Ordenar por",
+      "LOCALE": "Idioma",
       "SETTINGS_BUTTON": "Confirgurações",
       "NEW_BUTTON": "Novo Artigo",
       "DROPDOWN_OPTIONS": {
@@ -15,6 +16,12 @@
         "MINE": "Meus Artigos",
         "DRAFT": "Rascunhos de artigos",
         "ARCHIVED": "Artigos Arquivados"
+      },
+      "LOCALE_SELECT": {
+        "TITLE": "Selecionar idioma",
+        "PLACEHOLDER": "Selecionar idioma",
+        "NO_RESULT": "Nenhum idioma encontrado",
+        "SEARCH_PLACEHOLDER": "Buscar idioma"
       }
     },
     "EDIT_HEADER": {
@@ -76,6 +83,9 @@
     },
     "ARTICLE_SEARCH_RESULT": {
       "UNCATEGORIZED": "Sem categoria",
+      "SEARCH_RESULTS": "Resultados da pesquisa de %{query}",
+      "EMPTY_TEXT": "Pesquisar artigos para inserir em respostas.",
+      "SEARCH_LOADER": "A pesquisar...",
       "INSERT_ARTICLE": "Inserir",
       "NO_RESULT": "Nenhum artigo encontrado",
       "COPY_LINK": "Copiar link do artigo para área de transferência",
@@ -220,7 +230,10 @@
         "LOGO": {
           "LABEL": "Logo",
           "UPLOAD_BUTTON": "Upload logo",
-          "HELP_TEXT": "Este logo será exibido no cabeçalho do portal."
+          "HELP_TEXT": "Este logo será exibido no cabeçalho do portal.",
+          "IMAGE_UPLOAD_SUCCESS": "Logo importado",
+          "IMAGE_UPLOAD_ERROR": "Logo apagado",
+          "IMAGE_DELETE_ERROR": "Erro ao apagar logo"
         },
         "NAME": {
           "LABEL": "Nome:",
@@ -311,7 +324,8 @@
         "LAST_EDITED": "Última edição"
       },
       "COLUMNS": {
-        "BY": "por"
+        "BY": "por",
+        "AUTHOR_NOT_AVAILABLE": "Autor não disponível"
       }
     },
     "EDIT_ARTICLE": {
@@ -365,7 +379,7 @@
         "NAME": {
           "LABEL": "Nome:",
           "PLACEHOLDER": "Nome da categoria",
-          "HELP_TEXT": "O nome da categoria será usado no portal público para categorizar artigos.",
+          "HELP_TEXT": "O ícone e o nome da categoria serão usados no portal público para categorizar artigos.",
           "ERROR": "Nome é obrigatório"
         },
         "SLUG": {
@@ -396,7 +410,7 @@
         "NAME": {
           "LABEL": "Nome:",
           "PLACEHOLDER": "Nome da categoria",
-          "HELP_TEXT": "O nome da categoria será usado no portal público para categorizar artigos.",
+          "HELP_TEXT": "O ícone e o nome da categoria serão usados no portal público para categorizar artigos.",
           "ERROR": "Nome é obrigatório"
         },
         "SLUG": {
@@ -423,6 +437,48 @@
         "API": {
           "SUCCESS_MESSAGE": "Categoria apagada com sucesso",
           "ERROR_MESSAGE": "Não é possível apagar a categoria"
+        }
+      }
+    },
+    "ARTICLE_SEARCH": {
+      "TITLE": "Pesquisar artigos",
+      "PLACEHOLDER": "Pesquisar artigos",
+      "NO_RESULT": "Nenhum artigo encontrado",
+      "SEARCHING": "A pesquisar...",
+      "SEARCH_BUTTON": "Procurar",
+      "INSERT_ARTICLE": "Inserir link",
+      "IFRAME_ERROR": "O URL está vazio ou é inválido. Não é possível exibir o conteúdo.",
+      "OPEN_ARTICLE_SEARCH": "Inserir artigo do centro de ajuda",
+      "SUCCESS_ARTICLE_INSERTED": "Artigo inserido",
+      "PREVIEW_LINK": "Pré-visualizar artigo",
+      "CANCEL": "FECHAR",
+      "BACK": "Voltar",
+      "BACK_RESULTS": "Voltar aos resultados"
+    },
+    "UPGRADE_PAGE": {
+      "TITLE": "Centro de Suporte",
+      "DESCRIPTION": "Crie portais de self-service de fácil utilização. Ajude os seus utilizadores a aceder aos artigos e obter suporte 24/7. Atualize a sua subscrição para habilitar este recurso.",
+      "SELF_HOSTED_DESCRIPTION": "Crie portais de self-service de fácil utilização. Ajude os seus utilizadores a aceder aos artigos e obter suporte 24/7. Entre em contato com o administrador para ativar este recurso.",
+      "BUTTON": {
+        "LEARN_MORE": "Saiba mais",
+        "UPGRADE": "Upgrade"
+      },
+      "FEATURES": {
+        "PORTALS": {
+          "TITLE": "Múltiplos portais",
+          "DESCRIPTION": "Crie vários portais de ajuda centralizada para diferentes produtos usando a mesma conta."
+        },
+        "LOCALES": {
+          "TITLE": "Suporte total para idiomas",
+          "DESCRIPTION": "Localize o portal no seu idioma. Nós suportamos todos os idiomas e permitimos traduções para todos os artigos."
+        },
+        "SEO": {
+          "TITLE": "Design SEO-friendly",
+          "DESCRIPTION": "Personalize as suas meta tags para melhorar a visibilidade nos motores de busca com as nossas páginas SEO-friendly."
+        },
+        "API": {
+          "TITLE": "Suporte completo API",
+          "DESCRIPTION": "Use o portal como um CMS com frameworks de front-end externos usando as nossas APIs."
         }
       }
     }

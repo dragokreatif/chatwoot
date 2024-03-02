@@ -39,10 +39,10 @@
     },
     "MERGE_CONTACT": "Sujungti kontaktą",
     "CONTACT_ACTIONS": "Kontakto veiksmai",
-    "MUTE_CONTACT": "Tildyti pokalbį",
-    "UNMUTE_CONTACT": "Įjungti pokalbio garsą",
-    "MUTED_SUCCESS": "Šis pokalbis nutildytas 6 valandoms",
-    "UNMUTED_SUCCESS": "Įjungtas šio pokalbio garsas",
+    "MUTE_CONTACT": "Block Contact",
+    "UNMUTE_CONTACT": "Unblock Contact",
+    "MUTED_SUCCESS": "This contact is blocked successfully. You will not be notified of any future conversations.",
+    "UNMUTED_SUCCESS": "This contact is unblocked successfully.",
     "SEND_TRANSCRIPT": "Siųsti stenogramą",
     "EDIT_LABEL": "Redaguoti",
     "SIDEBAR_SECTIONS": {
@@ -79,7 +79,13 @@
     "TITLE": "Eksportuoti Kontaktus",
     "DESC": "Eksportuoti kontaktus į CSV failą.",
     "SUCCESS_MESSAGE": "Vykdomas eksportavimas. Jums bus pranešta el. paštu, kai eksporto failas bus paruoštas įkelti.",
-    "ERROR_MESSAGE": "Įvyko klaida, prašau pabandykite dar kartą"
+    "ERROR_MESSAGE": "Įvyko klaida, prašau pabandykite dar kartą",
+    "CONFIRM": {
+      "TITLE": "Eksportuoti Kontaktus",
+      "MESSAGE": "Are you sure you want to export all contacts?",
+      "YES": "Yes, Export",
+      "NO": "No, Cancel"
+    }
   },
   "DELETE_NOTE": {
     "CONFIRM": {
@@ -203,6 +209,10 @@
         "LABEL": "Žinutė",
         "PLACEHOLDER": "Rašykite pranešimą čia",
         "ERROR": "Pranešimas negali būti tuščias"
+      },
+      "ATTACHMENTS": {
+        "SELECT": "Pasirink failus",
+        "HELP_TEXT": "Nuvilkite failus čia arba pasirinkite failus, kuriuos norite pridėti"
       },
       "SUBMIT": "Išsiųsti pranešimą",
       "CANCEL": "Atšaukti",
@@ -335,7 +345,8 @@
     },
     "VALIDATIONS": {
       "REQUIRED": "Reikalinga tinkama vertė",
-      "INVALID_URL": "Neteisingas URL"
+      "INVALID_URL": "Neteisingas URL",
+      "INVALID_INPUT": "Invalid Input"
     }
   },
   "MERGE_CONTACTS": {
@@ -343,17 +354,17 @@
     "DESCRIPTION": "Dviejų profilių sujungimui į vieną sujunkite kontaktus, įskaitant visus požymius ir pokalbius. Kilus nesuderinamumui, pirmenybė bus teikiama pirminio kontakto požymiams.",
     "PRIMARY": {
       "TITLE": "Pirminis kontaktas",
-      "HELP_LABEL": "Turi būti saugoma"
+      "HELP_LABEL": "Turi būti ištrinta"
     },
-    "CHILD": {
+    "PARENT": {
       "TITLE": "Kontaktas sujungimui",
       "PLACEHOLDER": "Ieškoti kontakto",
-      "HELP_LABEL": "Turi būti ištrinta"
+      "HELP_LABEL": "Turi būti saugoma"
     },
     "SUMMARY": {
       "TITLE": "Santrauka",
-      "DELETE_WARNING": "Kontaktas <strong>%{childContactName}</strong> bus ištrintas.",
-      "ATTRIBUTE_WARNING": "Kontakto informacija <strong>%{childContactName}</strong> bus nukopijuota į <strong>%{primaryContactName}</strong>."
+      "DELETE_WARNING": "Kontaktas <strong>%{primaryContactName}</strong> bus ištrintas.",
+      "ATTRIBUTE_WARNING": "Kontakto informacija <strong>%{primaryContactName}</strong> bus nukopijuota į <strong>%{parentContactName}</strong>."
     },
     "SEARCH": {
       "ERROR": "KLAIDOS_PRANEŠIMAS"

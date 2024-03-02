@@ -30,7 +30,7 @@
     "ADD": {
       "CHANNEL_NAME": {
         "LABEL": "Inkorgsnamn",
-        "PLACEHOLDER": "Enter your inbox name (eg: Acme Inc)",
+        "PLACEHOLDER": "Ange ditt inkorgsnamn (t. ex. Acme Inc)",
         "ERROR": "Please enter a valid inbox name"
       },
       "WEBSITE_NAME": {
@@ -420,7 +420,7 @@
         "BUSINESS_NAME": {
           "BUTTON_TEXT": "+ Configure your business name",
           "PLACEHOLDER": "Enter your business name",
-          "SAVE_BUTTON_TEXT": "Save"
+          "SAVE_BUTTON_TEXT": "Spara"
         }
       },
       "ALLOW_MESSAGES_AFTER_RESOLVED": {
@@ -461,8 +461,8 @@
       "COLLABORATORS": "Medarbetare",
       "CONFIGURATION": "Konfiguration",
       "CAMPAIGN": "Kampanjer",
-      "PRE_CHAT_FORM": "Förre chattformulär",
-      "BUSINESS_HOURS": "Affärstimmar",
+      "PRE_CHAT_FORM": "Formulär före chatt",
+      "BUSINESS_HOURS": "Öppettider",
       "WIDGET_BUILDER": "Widget Builder",
       "BOT_CONFIGURATION": "Bot Configuration"
     },
@@ -482,8 +482,8 @@
       "AGENT_ASSIGNMENT": "Conversation Assignment",
       "AGENT_ASSIGNMENT_SUB_TEXT": "Update conversation assignment settings",
       "UPDATE": "Uppdatera",
-      "ENABLE_EMAIL_COLLECT_BOX": "Aktivera inkasso för e-post",
-      "ENABLE_EMAIL_COLLECT_BOX_SUB_TEXT": "Aktivera eller inaktivera insamlingsrutan för e-post på ny konversation",
+      "ENABLE_EMAIL_COLLECT_BOX": "Aktivera insamlingsbox för e-post",
+      "ENABLE_EMAIL_COLLECT_BOX_SUB_TEXT": "Aktivera eller inaktivera insamlingsbox för e-post på ny konversation",
       "AUTO_ASSIGNMENT": "Aktivera automatisk tilldelning",
       "ENABLE_CSAT": "Aktivera CSAT",
       "SENDER_NAME_SECTION": "Enable Agent Name in Email",
@@ -536,7 +536,7 @@
       "MESSAGE_ERROR": "Ett fel uppstod, vänligen försök igen"
     },
     "PRE_CHAT_FORM": {
-      "DESCRIPTION": "Förre chattformulär gör det möjligt för dig att samla in användarinformation innan de börjar samtala med dig.",
+      "DESCRIPTION": "Formulär före chatt gör det möjligt för dig att samla in användarinformation innan de börjar samtala med dig.",
       "SET_FIELDS": "Pre chat form fields",
       "SET_FIELDS_HEADER": {
         "FIELDS": "Fields",
@@ -547,7 +547,7 @@
         "REQUIRED": "Required"
       },
       "ENABLE": {
-        "LABEL": "Aktivera förchattformulär",
+        "LABEL": "Aktivera formulär före chatt",
         "OPTIONS": {
           "ENABLED": "Ja",
           "DISABLED": "Nej"
@@ -569,7 +569,7 @@
       "UPDATE": "Update business hours settings",
       "TOGGLE_AVAILABILITY": "Enable business availability for this inbox",
       "UNAVAILABLE_MESSAGE_LABEL": "Unavailable message for visitors",
-      "TOGGLE_HELP": "Enabling business availability will show the available hours on live chat widget even if all the agents are offline. Outside available hours vistors can be warned with a message and a pre-chat form.",
+      "TOGGLE_HELP": "Enabling business availability will show the available hours on live chat widget even if all the agents are offline. Outside available hours visitors can be warned with a message and a pre-chat form.",
       "DAY": {
         "ENABLE": "Enable availability for this day",
         "UNAVAILABLE": "Unavailable",
@@ -722,7 +722,7 @@
       },
       "BODY": {
         "TEAM_AVAILABILITY": {
-          "ONLINE": "We are Online",
+          "ONLINE": "Vi är online",
           "OFFLINE": "Vi är borta för tillfället"
         },
         "USER_MESSAGE": "Hi",

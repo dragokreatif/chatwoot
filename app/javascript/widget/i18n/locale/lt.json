@@ -80,7 +80,8 @@
     },
     "CAMPAIGN_HEADER": "Prieš pradėdami pokalbį nurodykite savo vardą ir el. pašto adresą",
     "IS_REQUIRED": "reikalingas",
-    "REQUIRED": "Reikalingas"
+    "REQUIRED": "Reikalingas",
+    "REGEX_ERROR": "Please provide a valid input"
   },
   "FILE_SIZE_LIMIT": "Failas viršija {MAXIMUM_FILE_UPLOAD_SIZE} apribojimą",
   "CHAT_FORM": {
@@ -109,7 +110,7 @@
     }
   },
   "PORTAL": {
-    "POPULAR_ARTICLES": "Popular Articles",
+    "POPULAR_ARTICLES": "Populiarūs straipsniai",
     "VIEW_ALL_ARTICLES": "Žiūrėti visus straipsnius",
     "IFRAME_LOAD_ERROR": "There was an error loading the article, please refresh the page and try again."
   },

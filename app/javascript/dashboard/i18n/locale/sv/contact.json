@@ -39,10 +39,10 @@
     },
     "MERGE_CONTACT": "Slå samman kontakt",
     "CONTACT_ACTIONS": "Kontakt åtgärder",
-    "MUTE_CONTACT": "Tysta konversation",
-    "UNMUTE_CONTACT": "Avtysta konversation",
-    "MUTED_SUCCESS": "Denna konversation är tystad i 6 timmar",
-    "UNMUTED_SUCCESS": "Denna konversation är avtystad",
+    "MUTE_CONTACT": "Block Contact",
+    "UNMUTE_CONTACT": "Unblock Contact",
+    "MUTED_SUCCESS": "This contact is blocked successfully. You will not be notified of any future conversations.",
+    "UNMUTED_SUCCESS": "This contact is unblocked successfully.",
     "SEND_TRANSCRIPT": "Skicka transkribering",
     "EDIT_LABEL": "Redigera",
     "SIDEBAR_SECTIONS": {
@@ -79,7 +79,13 @@
     "TITLE": "Export Contacts",
     "DESC": "Export contacts to a CSV file.",
     "SUCCESS_MESSAGE": "Export is in progress, You will be notified via email when export file is ready to dowanlod.",
-    "ERROR_MESSAGE": "Ett fel uppstod, vänligen försök igen"
+    "ERROR_MESSAGE": "Ett fel uppstod, vänligen försök igen",
+    "CONFIRM": {
+      "TITLE": "Export Contacts",
+      "MESSAGE": "Are you sure you want to export all contacts?",
+      "YES": "Yes, Export",
+      "NO": "No, Cancel"
+    }
   },
   "DELETE_NOTE": {
     "CONFIRM": {
@@ -203,6 +209,10 @@
         "LABEL": "Meddelande",
         "PLACEHOLDER": "Skriv ditt meddelande här",
         "ERROR": "Meddelandet kan inte vara tomt"
+      },
+      "ATTACHMENTS": {
+        "SELECT": "Välj filer",
+        "HELP_TEXT": "Dra och släpp filer här eller välj filer att bifoga"
       },
       "SUBMIT": "Skicka meddelande",
       "CANCEL": "Avbryt",
@@ -335,7 +345,8 @@
     },
     "VALIDATIONS": {
       "REQUIRED": "Valid value is required",
-      "INVALID_URL": "Ogiltig URL"
+      "INVALID_URL": "Ogiltig URL",
+      "INVALID_INPUT": "Invalid Input"
     }
   },
   "MERGE_CONTACTS": {
@@ -343,17 +354,17 @@
     "DESCRIPTION": "Sammanfoga kontakter för att kombinera två profiler till en, inklusive alla attribut och konversationer. Vid konflikter kommer attributen Primärkontakt att ha företräde.",
     "PRIMARY": {
       "TITLE": "Primär kontakt",
-      "HELP_LABEL": "Att behållas"
+      "HELP_LABEL": "Ta bort"
     },
-    "CHILD": {
+    "PARENT": {
       "TITLE": "Kontakt att slå samman",
       "PLACEHOLDER": "Sök efter en kontakt",
-      "HELP_LABEL": "Ta bort"
+      "HELP_LABEL": "Att behållas"
     },
     "SUMMARY": {
       "TITLE": "Sammanfattning",
-      "DELETE_WARNING": "Kontakt för <strong>%{childContactName}</strong> kommer att tas bort.",
-      "ATTRIBUTE_WARNING": "Kontaktuppgifter till <strong>%{childContactName}</strong> kommer att kopieras till <strong>%{primaryContactName}</strong>."
+      "DELETE_WARNING": "Kontakt för <strong>%{primaryContactName}</strong> kommer att tas bort.",
+      "ATTRIBUTE_WARNING": "Kontaktuppgifter till <strong>%{primaryContactName}</strong> kommer att kopieras till <strong>%{parentContactName}</strong>."
     },
     "SEARCH": {
       "ERROR": "FEL_MESSAGE"
